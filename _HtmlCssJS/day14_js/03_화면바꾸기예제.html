@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화면바꾸기</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<style>
+    body {
+        min-height: 100vh;
+        max-width: 400px;
+        background-color: rgb(29, 35, 100);
+        color: white;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    div {
+        margin-top: 300px;
+        margin-right: -50px;
+    }
+
+    .typing::after {
+        content: "|";
+        animation: blink 1s linear infinite;
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+</style>
+
+<body>
+
+    <div>
+        <span style="font-size: 480px;" class="material-symbols-outlined">
+            rocket_launch
+        </span>
+        <h1 id="title" class="typing"></h1>
+        <p>HTML/CSS/JavaScript</p>
+    </div>
+    <script>
+        const titles = ["Learn to HTML", "Learn to CSS", "Learn to React", "Learn to Python", "Learn to JavaScript"];
+        let index = 0;
+        let charIndex = 0;
+        let title = titles[index];
+
+        function typeTitle() {
+            if (charIndex < title.length) {
+                document.getElementById("title").innerText += title.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeTitle, 100);
+            } else {
+                setTimeout(() => {
+                    document.getElementById("title").innerText = "";
+                    index = (index + 1) % titles.length;
+                    title = titles[index];
+                    charIndex = 0;
+                    typeTitle();
+                }, 2000);
+            }
+        }
+
+        typeTitle();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 버튼</title>
+    <style>
+        .search_area {
+            position: absolute;
+            top: 50%;
+            left: 268px;
+            margin-top: -28px;
+        }
+
+        div {
+            display: block;
+        }
+
+        .search_area .green_window {
+            position: relative;
+            width: 582px;
+            height: 52px;
+            border: 2px solid #19ce60;
+            border-radius: 2px;
+        }
+
+        .search_area .input_text {
+            width: 444px;
+            height: 50px;
+            padding: 13px 15px;
+            margin: 1px;
+            box-sizing: border-box;
+            background-color: #fff;
+            font-size: 18px;
+            line-height: 24px;
+            color: #000;
+            font-weight: 700;
+            border: 0;
+            outline: 0;
+            text-align: start;
+            display: inline-block;
+            cursor: text;
+        }
+
+        .search_area .btn_submit {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 56px;
+            background-color: #19ce60;
+            border-radius: 0 2px 2px 0;
+            cursor: pointer;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: inline-block;
+            line-height: 16px;
+            color: #202020;
+        }
+
+        .icon_search_submit {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            background-image: url(/image/icon_search.png);
+            background-position: -420px -24px;
+            background-repeat: no-repeat;
+            background-size: 442px 428px;
+        }
+
+        .blind {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="search_area">
+        <form action="">
+            <div class="green_window">
+                <input class="input_text" type="search" id="" name="" placeholder="">
+            </div>
+            <button class="btn_submit" type="submit">
+                <span class="blind">검색</span>
+                <span class="icon_search_submit"></span>
+            </button>
+    </div>
+    </form>
+</body>
+
+</html>

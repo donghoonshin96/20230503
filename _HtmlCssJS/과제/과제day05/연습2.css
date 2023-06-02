@@ -1,0 +1,129 @@
+/* Grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    grid-column: 1 / -1;
+    text-align: center;
+    background-color: gray;
+    position: absolute;
+    width: 100%;
+}
+
+/* Laptop */
+.laptop {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+/* Laptop headings */
+.laptop h2,
+.laptop h3 {
+    margin: 0;
+}
+
+/* Monitor */
+.monitor {
+    grid-column: 1 / 2;
+    text-align: center;
+}
+
+/* Keyboard */
+.keyboard {
+    grid-column: 2 / 3;
+    text-align: center;
+}
+
+/* Mouse */
+.mouse {
+    grid-column: 3 / 4;
+    text-align: center;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive layout */
+@media screen and (min-width: 768px) {
+
+    /* Laptop */
+    .laptop {
+        grid-column: 1 / 4;
+        grid-row: 2 / 3;
+        text-align: left;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Laptop headings */
+    .laptop h2,
+    .laptop h3 {
+        margin: 10px 0;
+    }
+
+    /* Monitor */
+    .monitor {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        text-align: center;
+    }
+
+    /* Keyboard */
+    .keyboard {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        text-align: center;
+    }
+
+    /* Mouse */
+    .mouse {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    /* Laptop */
+    .laptop {
+        grid-column: 1 / 4;
+        grid-row: 1 / 2;
+        text-align: center;
+    }
+
+    /* Laptop headings */
+    .laptop h2,
+    .laptop h3 {
+        margin: 0;
+    }
+
+    /* Monitor */
+    .monitor {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        text-align: center;
+    }
+
+    /* Keyboard */
+    .keyboard {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        text-align: center;
+    }
+
+    /* Mouse */
+    .mouse {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        text-align: center;
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업창</title>
+</head>
+
+<body>
+    <h1>
+        Window메서드 종류
+    </h1>
+    <ul>
+        <li>
+            window.open('url','window name','option(size, scroll..)');
+        </li>
+        <li>
+            alert() : 경고창 띄움, prompt() : input 받을 수 있는 창, confirm() : 확인/취소 창
+        </li>
+        <li>
+            setInterval(function, milliseconds):
+            일정 간격으로 지속적 실행문을 실행시킬 때 사용
+        </li>
+        <li></li>
+    </ul>
+    <button type="button" onclick="openWindow()">열기</button>
+    <button type="button" onclick="closeWindow()">닫기</button>
+    <button type="button" onclick="alertw">alert</button>
+    <button type="button" onclick="promptw">prompt</button>
+    <button type="button" onclick="">confirm</button>
+    <h3 id="msg"></h3>
+    <script>
+        alert('경고창');
+        let inputp = prompt("프롬포트");
+        msg.innerHTML = `${inputp}`;
+        let inputc = confirm('컨펌');
+        msg.innerHTML += `<br>${inputc}`;
+        let myWindow;
+        function openWindow() {
+            myWindow = window.open("", "mywindow", "width=400, height=500, ");
+        }
+        function closeWindow() {
+            if (myWindow) {
+                myWindow.close();
+            }
+        }
+    </script>
+</body>
+
+</html>

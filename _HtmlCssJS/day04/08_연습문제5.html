@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제5</title>
+    <style>
+        table {
+            /* border: 1px solid black; */
+            border-collapse: collapse;
+
+        }
+
+        th,
+        td {
+            /* border: 1px solid black; */
+            width: 150px;
+            height: 30px;
+            text-align: center;
+            border: 1px dotted pink;
+            border-left: none;
+            border-right: none;
+        }
+
+        /* tr 첫번째 요소 */
+        thead {
+            background-color: rgb(225, 195, 249);
+            border-top: 2px solid rgb(184, 12, 103);
+            border-bottom: 2px solid rgb(184, 12, 103);
+        }
+
+        tfoot {
+            border-bottom: 2px solid rgb(184, 12, 103);
+        }
+
+        /* tbody의 짝수요소 */
+        tbody>tr:nth-child(2n) {
+            background-color: bisque;
+        }
+
+        /* tr에 마우스를 올리면 색 변경 */
+        tbody>tr:hover {
+            background-color: deeppink;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>이름</td>
+                <td>국어</td>
+                <td>영어</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>홍길동</td>
+                <td>78</td>
+                <td>98</td>
+            </tr>
+            <tr>
+                <td>홍길순</td>
+                <td>75</td>
+                <td>95</td>
+            </tr>
+            <tr>
+                <td>이순신</td>
+                <td>48</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>임꺽정</td>
+                <td>84</td>
+                <td>84</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>합계</td>
+                <td>285</td>
+                <td>325</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

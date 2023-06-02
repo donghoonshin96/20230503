@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요일구하기</title>
+</head>
+
+<body>
+    <h1>
+        오늘은?
+    </h1>
+    <button type="button" onclick="todaydate()">Today</button>
+    <h3 id="result">
+        <!-- 오늘날짜와 요일을 출력 -->
+        <!-- 2023.04.13(목) -->
+        <!-- js에서도 switch문 가능 -->
+    </h3>
+    <script>
+        function todaydate() {
+            let currentYear = new Date().getFullYear();
+            let currentMonth = new Date().getMonth() + 1;
+            let currentDay = new Date().getDate();
+            let week = new Array('일', '월', '화', '수', '목', '금', '토');
+
+            let today = new Date().getDay();
+            let todayLabel = week[today];
+
+            let result = `${currentYear}.${currentMonth}.${currentDay}(${todayLabel})`;
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</body>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+</head>
+<style>
+    h1 {
+        border: 5px solid black;
+        width: 12%;
+        height: 50px;
+        margin: 30px auto;
+        /* margin: 10px; 상하좌우 전체 10px */
+        /* margin: 30px auto;  상하  좌우 */
+        /* margin: [margin-top] [margin-right] [margin-bottom] [margin-left] */
+        /* margin: top (left=right) bottom; */
+    }
+
+    body {
+        text-align: center;
+    }
+
+    p {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    button {
+        background-color: white;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <h1>Travel</h1>
+    <div>
+        <p class="home"><button type="button" onclick="window.location.reload()">Home</button> </p>
+        <p><button type="button" id="btnSeoul" onclick="btnSeoul()">Seoul</button></p>
+        <p><button type="button" id="btnTokyo" onclick="btnTokyo()">Tokyo</button></p>
+        <p><button type="button" id="btnParis" onclick="btnParis()">Paris</button></p>
+    </div>
+    <img src="/image/airplane.jpg" id="printImg">
+    <script>
+        function btnSeoul() {
+            document.getElementById('printImg').src = '/image/seoul.jpg';
+        }
+        function btnTokyo() {
+            document.getElementById('printImg').src = '/image/tokyo.jpg';
+        }
+        function btnParis() {
+            document.getElementById('printImg').src = '/image/paris.jpg';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+    <style>
+        .img {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 가위바위보 게임
+    컴퓨터가 가위1, 바위2, 보3 중 하나를 정하면 나도 가위, 바위, 보 중 하나를 선택  -->
+    <!-- 가위 바위 보는 버튼
+    승패에 대한 결과를 출력 총 5번 횟수
+    컴퓨터는 랜덤으로 가위, 바위, 보 중 하나 선택 -->
+    <button type="button" onclick="play(1)" id="scissor" class="btn"><img src="/image/math_img_1.jpg"></button>
+    <button type="button" onclick="play(2)" id="rock" class="btn"><img src="/image/math_img_2.jpg"></button>
+    <button type="button" onclick="play(3)" id="paper" class="btn"><img src="/image/math_img_3.jpg"></button>
+    <h3 id="result">
+        <!-- 결과출력라인 -->
+    </h3>
+    <script>
+        let playerState = 0; //상태에 대한 숫자표현
+        let playerStateChar = ''; //상태에 대한 문자표현
+        let comState = 0;
+        let comStateChar = '';
+        let result = 0; // 결과여부
+        let win = 0; // 승리
+        let draw = 0; // 무승부
+        let lose = 0; // 패배
+        let r1 = ''; // 승패결과 String
+        function play(num) {
+            playerState = num;
+            if (num == 1) {
+                playerStateChar = '가위';
+            } else if (num == 2) {
+                playerStateChar = '바위';
+            } else if (num == 3) {
+                playerStateChar = '보';
+            }
+            comState = Math.floor(Math.random() * 3) + 1;
+            if (comState == 1) {
+                comStateChar = '가위';
+            } else if (comState == 2) {
+                comStateChar = '바위';
+            } else if (comState == 3) {
+                comStateChar = '보';
+            }
+            setDistinct();
+            showResult();
+        }
+        // 결과설정
+        function setDistinct() {
+            if (playerState == comState) {
+                result = 0;
+                draw++;
+            } else if ((playerState == 1 && comState == 3) || (playerState == 2 && comState == 1) || (playerState == 3 && comState == 2)) {
+                result = 1;
+                win++;
+            } else {
+                result = -1;
+                lose++;
+            }
+        }
+        // 결과 출력 함수 "\n 줄바꿈"
+        function showResult() {
+            r1 = '';
+            r1 += '당신 : ' + playerStateChar + '<br>';
+            r1 += '컴퓨터 : ' + comStateChar + '<br>';
+            if (result == 0) { // 무승부
+                r1 += '비겼습니다.<br>';
+            } else if (result == 1) { // 승리
+                r1 += '이겼습니다.<br>';
+            } else if (result == -1) { // 패배
+                r1 += '졌습니다.<br>';
+            }
+            r1 += '현재 전적<br>';
+            r1 += '승 : ' + win + '<br>';
+            r1 += '무 : ' + draw + '<br>';
+            r1 += '패 : ' + lose + '<br>';
+            r1 += '승률 : ' + getWinRate() + '%<br>';
+            document.getElementById('result').innerHTML = r1;
+        }
+        // 승률 계산
+        function getWinRate() {
+            // 승률 : (이긴횟수 / 전체 경기 횟수)*100
+            // 결과 설정
+            // 0 : 무승부 / 1 : 승 / -1 : 패
+            let winRate = (win / (win + lose)) * 100;
+            return winRate.toFixed(3);
+        }
+    </script>
+</body>
+
+</html>

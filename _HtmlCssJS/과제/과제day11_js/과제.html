@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+</head>
+
+<body>
+
+    <body>
+        <h1>1~45까지 중복되지 않는 숫자 6개를 랜덤으로 추출 => 출력</h1>
+        <button type="button" id="myNum">랜덤번호 6개 생성(출력)</button>
+        <h1 id="printNum"></h1>
+        <button type="button" id="lanNum">당첨번호 7개(마지막번호는 보너스번호)</button>
+        <h1 id="printNum2"></h1>
+        <button type="button" id="result">결과확인</button>
+        <button type="button" onclick="window.location.reload()">다시하기</button>
+        <h1 id="printResult"></h1>
+        <script>
+            // 변수선언
+            let myNumElement = document.querySelector('#myNum');
+            let printNumElement = document.querySelector('#printNum');
+            let lanNumElement = document.querySelector('#lanNum');
+            let printNum2Element = document.querySelector('#printNum2');
+            let resultElement = document.querySelector('#result');
+            let printResultElement = document.querySelector('#printResult');
+
+            // 내 번호와 당첨 번호를 저장할 Set 객체 생성
+            let myNum = new Set();
+            let lanNum = new Set();
+
+            // 랜덤숫자 생성
+            function getRandomNumber() {
+                return Math.floor(Math.random() * 45) + 1;
+            }
+
+            // 중복제거, 번호를 set에 저장
+            function generateNumbers(set, count) {
+                while (set.size < count) {
+                    set.add(getRandomNumber());
+                }
+                return Array.from(set);
+            }
+
+            // 버튼클릭시 내 번호6개 생성
+            myNumElement.addEventListener('click', function () {
+                myNum = generateNumbers(new Set(), 6);
+                printNumElement.innerHTML = `내 번호: ${myNum.join(', ')}`;
+            });
+
+            // 버튼클릭시 당첨번호7개 생성
+            lanNumElement.addEventListener('click', function () {
+                lanNum = generateNumbers(new Set(), 7);
+                printNum2Element.innerHTML = `당첨 번호: ${lanNum.slice(0, 6).join(', ')} / 보너스 번호: ${lanNum[6]}`;
+            });
+
+            // 결과확인
+            resultElement.addEventListener('click', function () {
+                // 내 번호와 당첨 번호가 생성되지 않았을 경우 기본값으로 설정
+                if (myNum.size === 0) {
+                    myNum = generateNumbers(new Set(), 6);
+                    printNumElement.innerHTML = `내 번호: ${myNum.join(', ')}`;
+                }
+                if (lanNum.size === 0) {
+                    lanNum = generateNumbers(new Set(), 7);
+                    printNum2Element.innerHTML = `당첨 번호: ${lanNum.slice(0, 6).join(', ')} / 보너스 번호: ${lanNum[6]}`;
+                }
+                // 계산
+                let matchCount = 0;
+                for (let num of myNum) {
+                    if (lanNum.slice(0, 6).includes(num)) {
+                        matchCount++;
+                    }
+                }
+                // 보너스 번호 일치 여부 확인
+                let bonusMatched = myNum.includes(lanNum[6]);
+                let resultText;
+                // 등수계산
+                switch (matchCount) {
+                    case 6:
+                        resultText = '1등';
+                        break;
+                    case 5:
+                        resultText = bonusMatched ? '2등' : '3등';
+                        break;
+                    case 4:
+                        resultText = '4등';
+                        break;
+                    case 3:
+                        resultText = '5등';
+                        break;
+                    default:
+                        resultText = '꽝';
+                        break;
+                }
+                printResultElement.innerHTML = `결과: ${resultText}`;
+            });
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,23 @@
+h1 {
+    border: 5px solid black;
+    width: 12%;
+    height: 50px;
+    margin: 30px auto;
+    /* margin: 10px; 상하좌우 전체 10px */
+    /* margin: 30px auto;  상하  좌우 */
+    /* margin: [margin-top] [margin-right] [margin-bottom] [margin-left] */
+    /* margin: top (left=right) bottom; */
+}
+
+body {
+    text-align: center;
+}
+
+p {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.home {
+    font-weight: bold;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제 Updown game</title>
+</head>
+
+<body>
+    <h1>
+        컴퓨터의 숫자를 맞춰라~~~!!!
+    </h1>
+        <button type="button" id="ranBtn">랜덤 숫자 생성 버튼</button>
+        <button type="button" id="retryBtn">다시 시도</button>
+    </h1>
+    <h3 id="printMsg"></h3>
+    <h1>
+        <input type="number" id="myGuess" max="50" min="1">
+        <button type="button" id="guessBtn">정답!!</button>
+    </h1>
+    <h3 id="result"></h3>
+    <h3 id="tries"></h3>
+
+    <script>
+        let number = Math.floor(Math.random() * 50) + 1;
+        let tries = 0;
+
+        const guessBtn = document.getElementById('guessBtn');
+        const result = document.getElementById('result');
+        const printMsg = document.getElementById('printMsg');
+        const triesElement = document.getElementById('tries');
+
+        guessBtn.addEventListener('click', function () {
+            tries++;
+            let myGuess = document.getElementById('myGuess').value;
+            if (tries > 5) {
+                result.innerHTML = `시도 횟수를 초과하였습니다. 정답은 ${number}였습니다.`;
+                guessBtn.disabled = true;
+            } else {
+                if (number < myGuess) {
+                    printMsg.innerHTML = "down";
+                } else if (number > myGuess) {
+                    printMsg.innerHTML = "up";
+                } else {
+                    result.innerHTML = `정답입니다~ 컴퓨터의 숫자는 ${number}였습니다`;
+                    guessBtn.disabled = true;
+                }
+                triesElement.innerHTML = `시도 횟수: ${tries}`;
+            }
+        });
+
+        document.getElementById('retryBtn').addEventListener('click', function () {
+            number = Math.floor(Math.random() * 50) + 1;
+            tries = 0;
+            result.innerHTML = "";
+            printMsg.innerHTML = "";
+            triesElement.innerHTML = "";
+            guessBtn.disabled = false;
+        });
+    </script>
+</body>
+
+</html>

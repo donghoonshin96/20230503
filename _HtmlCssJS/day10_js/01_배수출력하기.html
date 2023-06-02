@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배수출력하기</title>
+</head>
+
+<body>
+    <!-- 배수출력하기 -->
+    <h1>
+        배수출력하기 (1~100까지 중 입력한 숫자의 배수 출력)
+    </h1>
+    <input type="text" id="num">
+    <button type="button" id="btn">배수 출력</button>
+    <h3 id="result">
+
+    </h3>
+    <script>
+        let inputNum = document.querySelector("#num");
+        let result = document.querySelector("#result");
+        let btn = document.querySelector("#btn");
+
+        btn.addEventListener("click", () => {
+            let num = parseInt(inputNum.value);
+            let multiples = [];
+            for (let i = 1; i <= 100; i++) {
+                if (i % num === 0) {
+                    multiples.push(i);
+                }
+            }
+            result.innerHTML = `${num}의 배수 : ${multiples.join(", ")}<br>개수 : ${multiples.length}`;
+        });
+    </script>
+</body>
+
+</html>

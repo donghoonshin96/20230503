@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빅데이터 맛집검색, Goo:Dish</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="signup.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+
+    <div id="wrap">
+        <div class="move_top_button">
+            <div class="move_top_content">
+                <button class="move_top_button2">
+                    <span class="move_top_text" style="opacity: 0;">맨 위로 이동</span>
+                    <img class="move_top_default" src="/Project_06/Project_image/arrow_circle_up.svg" alt>
+                </button>
+            </div>
+        </div>
+        <div class="header"><a href="index.html"><img src="/Project_06/Project_image/mainlogo1.png"
+                    style="width:150px;height:auto;"></a></div>
+
+        <div class="nav_content">
+
+        </div>
+        <div class="banner_box">
+            <div class="banner_wrap">
+                <p class="banner_content">로그인하면 나에게 딱 맞는 맛집을 추천 받을 수 있어요</p>
+                <div class="banner_selection">
+                    <span class="selection_inner"></span>
+                    <a href="login.html" class="selection_buttonbox">
+                        로그인하기
+                        <img class="buttonbox_image" src="/Project_06/Project_image/login_image.svg" alt>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 -->
+        <main class="content">
+            <div class="bodybox">
+                <section class="card_section">
+                    <div class="card_section_wrap">
+
+                        <!-- 여기 작성 -->
+
+                        <div class="container">
+                            <div class="row">
+                                <form id="frm_login" method="POST">
+                                    <input name="retURL" type="hidden" value="https://www.diningcode.com/">
+                                    <div class="login">
+                                        <div class="title bb-gray">로그인 및 회원가입</div>
+                                        <div class="fs-15 fw-b" style="padding:24px 0;">
+                                            로그인을 통해 굿디쉬의 다양한 혜택을 누리세요.
+                                        </div>
+                                        <div>
+                                            <input id="txt_id" type="text" class="input-text"
+                                                placeholder="휴대전화번호 또는 이메일 입력" style="margin-bottom:7px;">
+                                            <input id="txt_pw" type="password" class="input-text" placeholder="비밀번호 입력">
+                                        </div>
+                                        <div style="padding:24px 0;">
+                                            <div class="fl">
+                                                <label class="checkbox">
+                                                    <input id="ckb_auto" type="checkbox" value="Y" checked="">
+                                                    <i class="check-icon"></i>
+                                                    <span class="fs-13 fw-b">로그인상태 유지</span></label>
+                                            </div>
+                                            <div class="fr" style="padding-top:3px;">
+                                                <a href="" style="color:#222222;">비밀번호 찾기</a>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <button type="submit" class="btn btn-black">로그인</button>
+
+                                        <div
+                                            style="margin:24px 0 100px 0; padding:24px 0; border:solid #E0E0E0 1px; line-height:24px;">
+                                            <span class="fs-15 fw-b">아직 다이닝코드 회원이 아니신가요?</span><br>
+                                            <span>회원가입을 하시면 더 많은 정보와 혜택을 받으실 수 있습니다.</span>
+                                            <a href="signup.html">
+                                                <button id="btn_intro" type="button" class="btn btn-white w200"
+                                                    style="margin-top:12px;">회원가입</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+        </main>
+        <div></div>
+        <footer class="bottom_content">
+            <div class="bottom_wrap">
+                <section class="footer_top">
+                    <div class="footer_notice">
+                        <a href="">데이터 제휴 문의</a>
+                        <div class="footer_spliter"></div>
+                        <a href="">개인정보처리방침</a>
+                        <div class="footer_spliter"></div>
+                        <a href="">이용약관</a>
+                        <div class="footer_spliter"></div>
+                        <a href="">위치기반 서비스 이용약관</a>
+                        <div class="footer_spliter"></div>
+                    </div>
+                </section>
+                <section class="footer_section_company_info">
+                    <span class="section_company_name">Goo:Dish</span>
+                    <div class="footer_spliter"></div>
+                    <span>대표이사 : 남태우(바지)</span>
+                    <div class="footer_spliter"></div>
+                    <span>소재지 : 인천광역시 남동구 인주대로 593 엔타스빌딩 12층</span>
+                </section>
+                <section class="footer_section_email">이메일 문의 : tw6795@naver.com</section>
+                <section class="footer_section_contact">
+                    <div class="section_contact_number">전화 문의 : 010-6664-6684 (평일 : 10:00 ~ 19:00, 주말/공휴일 제외)</div>
+                    <div>Copyright ⓒ 2023 Goo:Dish</div>
+                </section>
+            </div>
+        </footer>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

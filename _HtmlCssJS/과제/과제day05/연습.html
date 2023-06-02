@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+        @media(max-width: 768px){
+            aside{
+                grid-row: 4 / 5;
+                grid-column: 1 / 3;
+                
+            }
+            section{
+                grid-column: 1 / 3;
+                background-image: url(/image/keyboard.jpg);
+            }
+        }
+        .grid-container{
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            grid-auto-rows: minmax(100px, auto);
+            gap: .5em;
+        }
+        .main-img{
+            background-image: url(/image/labtop.jpg);
+        }
+        header{
+            background-color: gray;
+            border: 1px solid #333;
+            padding: 1em;
+            grid-column: 1 / 3;
+        }
+        nav{
+            background-color:paleturquoise;
+            border: 1px solid #333;
+            padding: 1em;
+            grid-column: 1 / 3;
+        }
+        section{
+            background-color: lightyellow;
+            background-image: url(/image/keyboard.jpg);
+            border: 1px solid #333;
+            padding: 1em;
+        }
+        aside{
+            background-color: limegreen;
+            border: 1px solid #333;
+            padding: 1em;
+        }
+        footer{
+            background-color:wheat;
+            border: 1px solid #333;
+            padding: 1em;
+            grid-column: 1 / 3;
+            background-image: url(/image/mouse.jpg);
+        }
+    </style>   
+</head>
+<body>
+    <div class="grid-container">
+        <header>in'O</header>
+        <nav>Portfolio</nav><div class="main-img"></div>
+        <nav>Make Hardware Soft</nav>
+        <aside id="sidebar">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also</aside>
+        <section></section>
+        <footer></footer>
+    </div> 
+</body>
+</html>

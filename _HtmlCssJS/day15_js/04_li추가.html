@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열로 문서CRUD 해보기</title>
+</head>
+
+<body>
+    <button type="button">Li Tag 한 번에 추가하기</button>
+    <button type="button">Li Tag 순차적 추가하기</button>
+    <button type="button">Li Tag 한 번에 추가하기</button>
+    <button type="button">Li Tag 순차적 추가하기</button>
+    <script>
+        const buttons = document.querySelectorAll('button');
+
+        const items = ['HTML', 'CSS', 'Javascript', 'SQL'];
+        let index1 = 0;
+        let index2 = 0;
+
+        buttons[0].addEventListener('click', () => {
+            const ul = document.createElement('ul');
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
+            });
+            document.body.appendChild(ul);
+        });
+
+        buttons[1].addEventListener('click', () => {
+            let ol = document.querySelector('ol');
+            if (!ol) {
+                ol = document.createElement('ol');
+                document.body.appendChild(ol);
+            }
+            if (index1 < items.length) {
+                const li = document.createElement('li');
+                li.textContent = items[index1];
+                ol.appendChild(li);
+                index1++;
+            }
+        });
+
+        buttons[2].addEventListener('click', () => {
+            const ul = document.createElement('ul');
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
+            });
+            document.body.appendChild(ul);
+        });
+
+        buttons[3].addEventListener('click', () => {
+            let ol = document.querySelectorAll('ol')[1];
+            if (!ol) {
+                ol = document.createElement('ol');
+                document.body.appendChild(ol);
+            }
+            if (index2 < items.length) {
+                const li = document.createElement('li');
+                li.textContent = items[index2];
+                ol.appendChild(li);
+                index2++;
+            }
+        });
+    </script>
+</body>
+
+</html>

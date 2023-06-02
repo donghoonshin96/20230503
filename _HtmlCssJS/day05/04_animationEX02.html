@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animationEX2</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        @keyframes jump {
+            0% {
+                margin-bottom: 0px;
+            }
+
+            25% {
+                margin-bottom: 10px;
+            }
+
+            50% {
+                margin-bottom: 20px;
+            }
+
+            75% {
+                margin-bottom: 10px;
+            }
+
+            100% {
+                margin-bottom: 0px;
+            }
+
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+        }
+
+        .p-box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+
+        .box {
+            border: 1px solid black;
+            border-radius: 30px 30px 30px 30px;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            bottom: 0px;
+            left: 10px;
+
+            animation-name: jump;
+            animation-duration: 0.5s;
+            animation-iteration-count: 10;
+            background-color: brown;
+            animation-timing-function: ease;
+            /*진행속도*/
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+
+</body>
+
+</html>

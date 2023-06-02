@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loginpage</title>
+    <style>
+        body {
+            min-height: 100vh;
+            background-color: aquamarine;
+            text-align: center;
+        }
+
+        .div {
+            text-align: center;
+        }
+
+        .loginbox {
+            border: 1px solid white;
+            background-color: white;
+            width: 500px;
+            height: 400px;
+            border-radius: 10px 10px 10px 10px;
+            margin-left: 40%;
+            margin-top: 20%;
+            position: absolute;
+        }
+
+        .input_id,
+        .input_pw {
+            width: 400px;
+            height: 50px;
+            padding: 0px;
+            margin-left: 10px;
+
+        }
+
+        .input_login_btn {
+            width: 400px;
+            height: 50px;
+            margin-left: -45px;
+            background-color: green;
+            margin-top: 20px;
+            border-radius: 5px 5px 5px 5px;
+            color: white;
+            cursor: pointer
+        }
+
+        .login_btn {
+            margin-left: 55px;
+            margin-top: -10px;
+            position: relative;
+            border-radius: 15px 15px 15px 15px;
+
+        }
+
+        .id {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loginbox">
+        <form action="">
+            <div class="id">
+                <input type="text" class="input_id text-field" placeholder="아이디">
+            </div>
+            <div class="pw">
+                <input type="password" class="input_pw text-field" placeholder="비밀번호">
+            </div>
+            <div class="login_btn">
+                <button type="submit" class="input_login_btn btn-input">로그인</button>
+            </div><br><br><br>
+            <a href="https://naver.com">
+                <p><u>비밀번호를 잊어버리셨나요</u></p>
+            </a>
+    </div>
+    </form>
+    <script>
+        const btn = document.querySelector('.btn-input');
+        const inputs = document.querySelectorAll('.text-field');
+        console.log(inputs);
+
+        // 아이디에 대한 규칙
+        // event input : input 요소의 값이 변경되었을 때
+        inputs[0].addEventListener('input', () => {
+            // password 값이 있는지 없는지 체크
+            let upw = document.getElementsByClassName('text-field')[1].value;
+            if (upw.length > 7) {
+                // 버튼의 활성화 조건 만족
+                let uid = document.getElementsByClassName('text-field')[0].value;
+                if (uid.length > 7) {
+                    btn.style.setProperty('background-color', 'rgb(27,188,155)');
+                    btn.disabled = false;
+                }
+            } else {
+                btn.style.setProperty('background-color', '#aaa');
+                btn.disabled = true;
+                
+            }
+        });
+
+        // 패스워드 규칙
+        inputs[1].addEventListener('input', () => {
+            let uid = document.getElementsByClassName('text-field')[0].value;
+            if (uid.length > 7) {
+                // 버튼의 활성화 조건 만족
+                let upw = document.getElementsByClassName('text-field')[1].value;
+                // 정규식 패턴 체크 과정
+                // 정규식에 패스워드가 일치하면 true 아니면 false
+                let reg = /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$/.test(upw);
+                console.log(upw, reg);
+                if (reg) {
+                    btn.style.setProperty('background-color', 'rgb(27,188,155)');
+                    btn.disabled = false;
+                }
+                if (upw.length > 7) {
+                    btn.style.setProperty('background-color', 'rgb(27,188,155)');
+                    btn.disabled = false;
+                }
+            } else {
+                btn.style.setProperty('background-color', '#aaa');
+                btn.disabled = true;
+            }
+        });
+    </script>
+</body>
+
+</html>

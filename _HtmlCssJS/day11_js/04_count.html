@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count만들기</title>
+</head>
+
+<body>
+    <!-- 
+        button 2개를 준비
+        + => 값이1씩 증가, - => 값이 1씩 감소
+     -->
+    <h1 id="number">0</h1>
+    <div>
+        <button type="button" id="increase">+</button>
+        <button type="button" id="decrease">-</button>
+    </div>
+    <script>
+        let inputNum = document.querySelector("#number");
+        let increase = document.querySelector("#increase");
+        let decrease = document.querySelector("#decrease");
+
+        increase.addEventListener("click", () => {
+            let number = parseInt(inputNum.textContent);
+            if (number < 10) {
+                number = number + 1;
+                inputNum.textContent = number;
+            }
+        });
+
+        decrease.addEventListener("click", () => {
+            let number = parseInt(inputNum.textContent);
+            if (number > 1) {
+                number = number - 1;
+                inputNum.textContent = number;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>과제</title>
+    <style>
+        .container {
+            width: 75%;
+            height: 768px;
+            margin: auto;
+            background-image: url("/image/airplane2.jpg");
+            background-position: center center;
+            background-size: 100%;
+            text-align: center;
+        }
+
+        .cover {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .inner {
+            width: 55%;
+            background-color: white;
+            z-index: 1;
+            transform: translate(35%, 120%);
+        }
+
+        .bt {
+            border: 1px solid black;
+            background-color: lightgray;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        img {
+            width: 45px;
+            height: 30px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="cover">
+            <div class="inner">
+                <img src="/image/airplane2.jpg" alt="">
+                <h2>
+                    사용자 수가 많아 접속이 지연되고 있습니다. <br>
+                    잠시 기다려주세요.
+                </h2>
+                <i class="fa fa-spinner"></i>
+                <p>접속이 어려운 경우 메인으로 자동 이동합니다.</p>
+                <div class="bt">
+                    <p>
+                        관련 문의 사항은 고객센터에 문의해주시면 친절히 안내해드리겠습니다.
+                        <br>
+                        고객상담전화:080-022-0182
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

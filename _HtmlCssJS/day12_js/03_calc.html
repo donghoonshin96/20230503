@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc연습</title>
+    <style>
+        button {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="area top">
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" value="+">+</button>
+            <button type="button" value="C">C</button><br>
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" value="-">-</button><br>
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" value="*">*</button><br>
+            <button type="button" value=".">.</button>
+            <button type="button" value="0">0</button>
+            <button type="button" value="=">=</button>
+            <button type="button" value="/">/</button>
+        </div>
+        <h1 class="area bottom" id="printFomula"></h1>
+    </div>
+    <script>
+        let fomulaValue = '';
+        let resultValue = '';
+        // 수식을 계산하는 함수
+        function calculate(expression) {
+            // 수식을 토큰화
+            let tokens = expression.split(' ');
+            // 숫자를 스택에 저장
+            let values = [];
+            // 연산자를 스택에 저장
+            let operators = [];
+            // 연산자의 우선순위를 정함
+            let precedence = {
+                '+': 1,
+                '-': 1,
+                '*': 2,
+                '/': 2
+            };
+            // 토큰화된 수식을 순회
+            for (let token of tokens) {
+                // 토큰이 숫자인 경우
+                if (!isNaN(token)) {
+                    // 숫자 스택에 푸시
+                    values.push(parseFloat(token));
+                } else if (token in precedence) { // 토큰이 연산자인 경우
+                    // 연산자 스택의 맨 위에 있는 연산자의 우선순위가 현재 연산자의 우선순위보다 높거나 같으면
+                    while (operators.length > 0 && precedence[operators[operators.length - 1]] >= precedence[token]) {
+                        // 숫자 스택에서 두 개의 숫자를 팝하여 연산후 결과를 다시 숫자 스택에 푸시
+                        let operator = operators.pop();
+                        let right = values.pop();
+                        let left = values.pop();
+                        let result;
+                        switch (operator) {
+                            case '+':
+                                result = left + right;
+                                break;
+                            case '-':
+                                result = left - right;
+                                break;
+                            case '*':
+                                result = left * right;
+                                break;
+                            case '/':
+                                result = left / right;
+                                break;
+                        }
+                        values.push(result);
+                    }
+                    // 현재 연산자를 연산자 스택에 푸시
+                    operators.push(token);
+                }
+            }
+            // 모든 토큰을 처리한 후 연산자 스택이 빌 때 까지 숫자 스택에서 두 개의 숫자를 팝하여 연산한 후 결과를 다시 숫자 스택에 푸시
+            while (operators.length > 0) {
+                let operator = operators.pop();
+                let right = values.pop();
+                let left = values.pop();
+                let result;
+                switch (operator) {
+                    case '+':
+                        result = left + right;
+                        break;
+                    case '-':
+                        result = left - right;
+                        break;
+                    case '*':
+                        result = left * right;
+                        break;
+                    case '/':
+                        result = left / right;
+                        break;
+                }
+                values.push(result);
+            }
+            // 최종적으로 숫자 스택에 남아있는 하나의 값이 계산된 결과
+            return values[0];
+        }
+
+        document.querySelector('.container').addEventListener('click', function (e) {
+            let btnValue = e.target.value;
+            let printFomula = document.querySelector('#printFomula');
+
+            if (!isNaN(btnValue) || btnValue === '.') { // 숫자일 때
+                fomulaValue += btnValue; // 값이 = 아닌 (+-*/)의 경우
+                printFomula.innerHTML = fomulaValue;
+            } else if (btnValue === 'C') { // 초기화
+                fomulaValue = '';
+                resultValue = '';
+                printFomula.innerHTML = '0';
+            } else if (btnValue === '=') { // 계산
+                resultValue = calculate(fomulaValue);
+                resultValue = resultValue.toFixed(2);
+                fomulaValue = resultValue.toString();
+                printFomula.innerHTML = resultValue;
+            } else { // 연산자일 때
+                fomulaValue += ` ${btnValue} `;
+                printFomula.innerHTML = fomulaValue;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
